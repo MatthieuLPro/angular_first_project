@@ -1,14 +1,17 @@
 export class AppareilService {
 	appareils = [
 		{
+			id: 1,
 			name: 'Machine à laver',
 			status: 'Eteint'
 		},
 		{
+			id: 2,
 			name: 'Micro onde',
 			status: 'Allumer'
 		},
 		{
+			id: 3,
 			name: 'Four',
 			status: 'Eteint'
 		},
@@ -26,12 +29,21 @@ export class AppareilService {
 		}
 	};
 
-	switchOnOne(i: number) {
-		this.appareils[i].status = 'Allumer';
-	}
+	switchOnOne(id: number) {
+		this.appareils[id].status = 'Allumer';
+	};
 
-	switchOffOne(i: number) {
-		this.appareils[i].status = 'Eteint';
+	switchOffOne(id: number) {
+		this.appareils[id].status = 'Eteint';
+	};
+
+	getAppareilById(id: number) {
+		const appareil = this.appareils.find(
+			(s) => {
+				return s.id === id;
+			}
+		);
+		return appareil;
 	}
 	
 }

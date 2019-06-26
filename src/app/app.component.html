@@ -3,14 +3,17 @@
   <h1>
     Welcome to {{ title }}!
   </h1>
+  <div>
+    <ul>
+      <li routerLinkAcive="active"><a routerLink="auth">Authentification</a></li>
+      <li routerLinkAcive="active"><a routerLink="appareils">Appareils</a></li>
+    </ul>
+  </div>
   <h2>Mes appareils</h2>
   <p>Mis à jour: {{ lastUpdate | async | date: 'short' }}</p>
   <button [disabled]="!isAuth" (click)="onAllumer()">Tout allumer</button>
   <button [disabled]="!isAuth" (click)="onEteindre()">Tout eteindre</button>
-  <app-appareil *ngFor="let appareil of appareils; let i = index"
-  				[appareilName]="appareil.name"
-  				[appareilStatus]="appareil.status"
-  				[index]="i"></app-appareil>
+  <router-outlet></router-outlet>
 </div>
 
 <router-outlet></router-outlet>

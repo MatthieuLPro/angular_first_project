@@ -1,12 +1,11 @@
-import { Component, OnInit } from '@angular/core';
-import { AppareilService } from './services/appareil.service';
+import { Component } from '@angular/core';
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
-export class AppComponent implements OnInit {
+export class AppComponent {
   title = 'First project 100% angular';
   isAuth = false;
   lastUpdate = new Promise((resolve, reject) => {
@@ -16,30 +15,5 @@ export class AppComponent implements OnInit {
         resolve(date);
       }, 2000
     );
-  });
-
-  appareils: any[];
-
-  constructor(private appareilService: AppareilService) {
-  	setTimeout(
-  		() => {
-  			this.isAuth = true;
-  		}, 1
-  	);
-  };
-
-  ngOnInit() {
-    this.appareils = this.appareilService.appareils;
-  };
-
-  onAllumer() {
-    this.appareilService.switchOnAll();
-  };
-
-  onEteindre() {
-    if(confirm('Etes vous sur de tout eteindre ?'))
-      this.appareilService.switchOffAll();
-    else
-      return null;
-  };
+  });  
 }
