@@ -1,9 +1,11 @@
-<li>
+<ul>
 	<app-appareil *ngFor="let appareil of appareils; let i = index"
 				  [appareilName]="appareil.name"
 				  [appareilStatus]="appareil.status"
 				  [index]="i"
 				  [id]="appareil.id"></app-appareil>
-	<h4 [ngStyle]="{color: getColor()}">Appareil: {{ appareilName }} - Status: {{ getStatus() }}</h4>
-	<a [routerLink]="[id]">Détail</a>
-</li>
+	<li>
+		<h4 [ngStyle]="{color: getColor()}">Appareil: {{ appareilName }} - Status: {{ getStatus() }}</h4>
+		<a [routerLink]="[id]">Détail</a>		
+	</li>
+</ul>
