@@ -1,0 +1,8 @@
+<li [ngClass]="{'class-1': appareilStatus === 'Eteint',
+				'class-2': appareilStatus === 'Allumer'}">
+	<div style="width: 20px; height: 20px;" *ngIf="appareilStatus == 'Eteint'"></div>
+	<h4 [ngStyle]="{color: getColor()}">Appareil: {{ appareilName }} est {{ getStatus() }}</h4>
+	<input type="text" [(ngModel)]="appareilName" />
+	<button *ngIf="appareilStatus === 'Eteint'" (click)="onSwitch()">Allumer</button>
+	<button *ngIf="appareilStatus === 'Allumer'" (click)="onSwitch()">Eteindre</button>
+</li>
