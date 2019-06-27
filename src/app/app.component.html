@@ -9,6 +9,7 @@
       <li routerLinkAcive="active"><a routerLink="appareils">Appareils</a></li>
     </ul>
   </div>
+  <p>Vous êtes connecté depuis {{ secondes }} secondes !</p>
   <h2>Mes appareils</h2>
   <p>Mis à jour: {{ lastUpdate | async | date: 'short' }}</p>
   <button [disabled]="!isAuth" (click)="onAllumer()">Tout allumer</button>
